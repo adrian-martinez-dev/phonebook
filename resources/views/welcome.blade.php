@@ -72,6 +72,14 @@
                   <h1>
                     Agenda Telefónica
                   </h1>
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Contacto...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Buscar</button>
+                      </span>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
                 </div>
 
                </div>
