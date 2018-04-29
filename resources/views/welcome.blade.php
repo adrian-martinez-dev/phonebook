@@ -70,14 +70,14 @@
             Agenda Telefónica
           </h1>
 
-              <div class="mx-auto" style="width: 400px;">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Contacto...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Buscar</button>
-                  </span>
-                </div>
-              </div>
+          <div class="mx-auto" style="width: 400px;">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Contacto...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Buscar</button>
+              </span>
+            </div>
+          </div>
 
         </div>
 
