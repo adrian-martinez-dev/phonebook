@@ -19,57 +19,17 @@
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
         </style>
     </head>
     <body>
       <div class="position-ref full-height">
         <div class="content">
 
-          <h1>
+          <h1 class="text-center">
             Agenda Telefónica
           </h1>
-
+          
+          {{--Búsqueda--}}
           <div class="mx-auto" style="width: 400px;">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Contacto...">
@@ -78,7 +38,51 @@
               </span>
             </div>
           </div>
+          </br>
 
+          {{--Entrada de datos--}}
+          <form class="mx-auto col-md-6">
+            <div class="form-row">
+              <div class="col-6">
+                <input type="text" class="form-control" placeholder="Nombre">
+              </div>
+              <div class="col-4">
+                <input type="number" class="form-control" placeholder="Teléfono">
+              </div>
+              <div class="col-2">
+                <button type="button" class="btn btn-success">Guardar</button>
+              </div>
+            </div>
+          </form>
+
+          </br>
+
+          {{--Tabla--}}
+          <div class="mx-auto col-md-6">
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="col-md-2">Nombre</th>
+                  <th class="col-md-2">Telefono</th>
+                  <th class="col-md-2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Roberto Adrián Martínez García</td>
+                  <td>6181163928</td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary">Editar</button>
+                      <button type="button" class="btn btn-danger">Borrar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
         </div>
 
 <!-- JQuery -->
