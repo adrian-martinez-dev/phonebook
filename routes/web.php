@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('contacts', 'ContactController');
+Route::resource('contacts', 'ContactController', [
+  'except' => ['create', 'edit']
+]);
