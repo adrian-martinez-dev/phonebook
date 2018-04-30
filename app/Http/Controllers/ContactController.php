@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contact;
+use DB;
 
 class ContactController extends Controller
 {
@@ -13,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = DB::select('call select_all()');
+        return $contacts;
     }
 
     /**
@@ -23,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        // Aqui se llama a la vista crear!!! tal vez hay que cerrar esta ruta
     }
 
     /**
@@ -34,7 +37,9 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        DB::select('call create_contact(?,?)', [$name,$phone]);
     }
 
     /**
@@ -45,7 +50,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $find_contact = DB::select('call select_by_id(?)',[$id]);
+        return $find_contact;
     }
 
     /**
@@ -56,7 +62,7 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Esto lleva a una vista!!!! hay que cerrar esta ruta
     }
 
     /**
@@ -68,7 +74,10 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = $request->get('id');
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        DB::select('call update_contact(?,?,?)', [$id,$name,$phone]);
     }
 
     /**
@@ -79,6 +88,6 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::select('call delete_contact(?)',[$id]);
     }
 }
