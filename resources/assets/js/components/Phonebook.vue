@@ -12,7 +12,7 @@
     <!--Búsqueda-->
     <div class="mx-auto" style="width: 400px;">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Contacto...">
+        <input v-model="search" type="text" class="form-control" placeholder="Contacto...">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">Buscar</button>
         </span>
@@ -50,7 +50,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="contact in contacts">
+          <tr v-for="contact in filteredContacts">
             <td>{{ contact.name }}</td>
             <td>{{ contact.phone }}</td>
             <td>
@@ -80,6 +80,7 @@ export default {
       id: '',
       name: '',
       phone: '',
+      search: '',
       edit: 0
     };
   },
@@ -129,6 +130,12 @@ export default {
         console.log('Borrado');
         this.getContacts();
       });
+    }
+  },
+  computed: {
+    filteredContacts: function () {
+      var self = this;
+      return this.contacts.filter(function (contact) { return contact.name.toLowerCase().indexOf(self.search.toLowerCase()) >= 0; });
     }
   }
 };
