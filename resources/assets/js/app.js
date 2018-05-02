@@ -15,7 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('phonebook', require('./components/PhoneBook.vue'));
+Vue.component('phonebook', require('./components/Phonebook.vue'));
 
 const app = new Vue({
     el: '#app'
