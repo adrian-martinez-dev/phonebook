@@ -64,9 +64,9 @@
       </table>
 
     </div>
-  <pre>
-    @{{ $data }}
-  </pre>
+  <!--<pre>-->
+    <!--@{{ $data }}-->
+  <!--</pre>-->
   </div>
 </template>
 <script>
