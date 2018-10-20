@@ -15,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = DB::select('call select_all()');
+        /* $contacts = DB::select('call select_all()'); */
+        $contacts = Contact::all();
         return $contacts;
     }
 
@@ -37,9 +38,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('name');
-        $phone = $request->get('phone');
-        DB::select('call create_contact(?,?)', [$name,$phone]);
+        $contact = Contact::create([
+        'name' => $request->get('name'),
+        'phone' => $request->get('phone'),
+        ]);
+        /* DB::select('call create_contact(?,?)', [$name,$phone]); */
     }
 
     /**
@@ -74,10 +77,12 @@ class ContactController extends Controller
      */
     public function update(Request $request)
     {
-        $id = $request->get('id');
-        $name = $request->get('name');
-        $phone = $request->get('phone');
-        DB::select('call update_contact(?,?,?)', [$id,$name,$phone]);
+        $contact = Contact::find($id);
+        $contact->$id = $request->get('id');
+        $contact->$name = $request->get('name');
+        $contact->$phone = $request->get('phone');
+        /* DB::select('call update_contact(?,?,?)', [$id,$name,$phone]); */
+        $contact->save();
     }
 
     /**
@@ -88,6 +93,8 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        DB::select('call delete_contact(?)',[$id]);
+        $contact = Contact::find($id);
+        $contact->delete();
+        /* DB::select('call delete_contact(?)',[$id]); */
     }
 }
